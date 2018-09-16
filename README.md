@@ -15,3 +15,17 @@ npm install
 ## Contributing Guildelines
 * Meaningful commit messages
 * Document things as necessary
+
+## TODO
+
+- [ ] Auth Page
+    - [ ] Login
+    - [ ] Register
+- [ ] Request Page
+    - [ ] Register Requests
+    - [ ] Requests Listing
+    - [ ] Get Request Info
+    - [ ] Status and comments on Requests
+    - [ ] Visualise Request in maps
+    - [ ] Resolve Request
+- [ ] Provide Help Page
