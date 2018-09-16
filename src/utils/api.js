@@ -1,11 +1,9 @@
 var axios = require('axios');
-var cookies = require('cookies');
 
 // return API version
 function apiVer() {
     axios.get("http://localhost:8000/api/")
         .then(res => {
-            console.log(res.data);
             return res.data;
         })
 }
