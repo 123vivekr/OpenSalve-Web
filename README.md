@@ -19,7 +19,7 @@ npm install
 ## TODO
 
 - [ ] Auth Page
-    - [ ] Login
+    - [x] Login
     - [ ] Register
 - [ ] Request Page
     - [ ] Register Requests
