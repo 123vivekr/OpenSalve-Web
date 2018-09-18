@@ -20,7 +20,7 @@ npm install
 
 - [ ] Auth Page
     - [x] Login
-    - [ ] Register
+    - [x] Register
 - [ ] Request Page
     - [ ] Register Requests
     - [ ] Requests Listing
