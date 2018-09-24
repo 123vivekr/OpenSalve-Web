@@ -61,6 +61,9 @@ function userDetails(username) {
         .then(res => {
             console.log(res);
         })
+        .catch(error => {
+            console.log(error);
+        })
 }
 
 // add camps
@@ -80,6 +83,17 @@ function addCamp(id, lat, lng, location, capacity, number_of_people, admin) {
         })
         .catch(err => {
             console.log(err);
+        })
+}
+
+// get camp
+function getCamp(id) {
+    axios.get(APIbase + '/camps/c/' + id)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(error => {
+            console.log(error);
         })
 }
 
