@@ -63,6 +63,26 @@ function userDetails(username) {
         })
 }
 
+// add camps
+function addCamp(id, lat, lng, location, capacity, number_of_people, admin) {
+    var data = {
+        'id': id,
+        'lat': lat,
+        'lng': lng,
+        'location': location,
+        'capacity': capacity,
+        'number_of_people': number_of_people,
+        'admin': admin
+    };
+    axios.post(APIbase + '/camps/add', data)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+}
+
 module.exports.apiVer = apiVer;
 module.exports.register = register;
 module.exports.login = login;
