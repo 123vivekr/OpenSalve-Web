@@ -132,23 +132,22 @@ class Auth extends Component {
 
     render() {
         const { classes, login } = this.props;
-        return (
-          <Consumer>
+        return <Consumer>
             {context => {
-              console.log(context);
-              return (
-              <div>
-                {
-                  login ?
-                    this.login(classes)
-                    :
-                    this.register(classes)
-                }
-              </div>
+                console.log(context);
+                return (
+                    <div>
+                        {
+                            login ?
+                                this.login(classes)
+                                :
+                                this.register(classes)
+                        }
+                    </div>
 
-            )}}
-          </Consumer>
-        );
+                )
+            }}
+        </Consumer>;
     }
 }
 
