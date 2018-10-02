@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import NavBar from './navbar';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { Consumer } from '../Context'
 
 const styles = theme => ({
     Auth: {
@@ -132,14 +133,21 @@ class Auth extends Component {
     render() {
         const { classes, login } = this.props;
         return (
-            <div>
+          <Consumer>
+            {context => {
+              console.log(context);
+              return (
+              <div>
                 {
-                    login ?
-                        this.login(classes)
+                  login ?
+                    this.login(classes)
                     :
-                        this.register(classes)
+                    this.register(classes)
                 }
-            </div>
+              </div>
+
+            )}}
+          </Consumer>
         );
     }
 }
