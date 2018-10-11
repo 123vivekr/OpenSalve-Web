@@ -18,7 +18,7 @@ class Request extends Component {
         const { classes } = this.props;
         return (
             <div className={root}>
-                <NavBar />
+                <NavBar title={'Request'}/>
             </div>
         );
     }

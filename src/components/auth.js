@@ -34,7 +34,7 @@ class Auth extends Component {
         <div className="Auth">
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                    <NavBar />
+                    <NavBar title={'Login'}/>
                 </Grid>
                 <Grid item xs={12} sm={2}>
                 </Grid>
@@ -75,7 +75,7 @@ class Auth extends Component {
         <div className="Auth">
             <Grid container spacing={24}>
                 <Grid item xs={12}>
-                    <NavBar />
+                    <NavBar title={'Sign Up'}/>
                 </Grid>
                 <Grid item xs={12} sm={2}>
                 </Grid>

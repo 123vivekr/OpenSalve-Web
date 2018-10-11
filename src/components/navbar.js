@@ -16,7 +16,7 @@ class NavBar extends Component {
         const { classes } =  this.props;
         return(
             <div className="NavBar">
-                <Paper className={classes.paper}>NavBar</Paper>
+                <Paper className={classes.paper}>{this.props.title}</Paper>
             </div>
         );
     }
