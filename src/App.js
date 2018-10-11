@@ -8,16 +8,16 @@ import './App.css';
 
 class App extends Component {
   render() {
-    return (
-        <Router>
-            <div>
-              <AppProvider>
-                <Route exact path="/auth" component={Auth} />
-                <Route exact path="/request" component={Request} />
-              </AppProvider>
-            </div>
-        </Router>
-    );
+	return (
+		<Router>
+			<div>
+			  <AppProvider>
+				<Route exact path="/auth" component={Auth} />
+				<Route exact path="/request" component={Request} />
+			  </AppProvider>
+			</div>
+		</Router>
+	);
   }
 }
 
