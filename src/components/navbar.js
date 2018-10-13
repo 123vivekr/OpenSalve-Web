@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
     paper: {
@@ -9,6 +10,9 @@ const styles = theme => ({
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
+    button: {
+        margin: theme.spacing.unit,
+    }
 });
 
 class NavBar extends Component {
@@ -16,7 +20,17 @@ class NavBar extends Component {
         const { classes } =  this.props;
         return(
             <div className="NavBar">
-                <Paper className={classes.paper}>{this.props.title}</Paper>
+                <Paper className={classes.paper}>
+                    <Button id="button" disabled={this.props.title === "request"} variant='contained' className={classes.button} color='primary'>
+                       Request
+                    </Button>
+                    <Button id="button" disabled={this.props.title === "auth"} variant='contained' className={classes.button} color='primary'>
+                        Auth
+                    </Button>
+                    <Button id="button" disabled={this.props.title === "help"} variant='contained' className={classes.button} color='primary'>
+                        Help
+                    </Button>
+                </Paper>
             </div>
         );
     }
