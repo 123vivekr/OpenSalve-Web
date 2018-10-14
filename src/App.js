@@ -5,6 +5,7 @@ import { apiVer, login, register, userDetails } from "./utils/api.js";
 import Request from "./components/requests";
 import Help from "./components/help";
 import Analytics from "./components/analytics";
+import Camps from "./components/camps";
 import { AppProvider } from "./Context";
 import "./App.css";
 
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/requests" component={Request} />
             <Route exact path="/analytics" component={Analytics} />
             <Route exact path="/help" component={Help} />
+            <Route exact path="/camps" component={Camps} />
           </AppProvider>
         </div>
       </Router>
