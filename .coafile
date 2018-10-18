@@ -1,5 +1,4 @@
-[cli]
+[all]
+use_spaces = True
 bears = SpaceConsistencyBear
-default_actions = *: ApplyPatchAction
 files = src/*
-use_spaces = False

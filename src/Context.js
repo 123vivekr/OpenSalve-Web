@@ -10,23 +10,23 @@ export const { Provider, Consumer } = Context;
 
 export class AppProvider extends React.Component {
   state = {
-	isLoggedIn: false
+    isLoggedIn: false
   };
   toggleLoggedIn = () => {
-	this.setState({ isLoggedIn: !this.state.isLoggedIn });
+    this.setState({ isLoggedIn: !this.state.isLoggedIn });
   };
   render() {
-	return (
-	  <Provider
-		value={{
-		  state: this.state,
-		  actions: {
-			toggleLoggedIn: this.toggleLoggedIn
-		  }
-		}}
-	  >
-		{this.props.children}
-	  </Provider>
-	);
+    return (
+      <Provider
+        value={{
+          state: this.state,
+          actions: {
+            toggleLoggedIn: this.toggleLoggedIn
+          }
+        }}
+      >
+        {this.props.children}
+      </Provider>
+    );
   }
 }
