@@ -5,8 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import { Grid } from "@material-ui/core";
 import { Consumer } from "../Context";
 import "../css/nav.css";
-import { Link } from "react-router-dom";
-import { withRouter } from "react-router";
+import { Link, withRouter } from "react-router-dom";
 
 const styles = theme => ({
   paper: {
