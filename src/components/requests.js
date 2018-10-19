@@ -20,6 +20,7 @@ class Request extends Component {
     return (
       <div className={root}>
         <NavBar title={"request"} />
+          <br/>
         <RequestCard />
       </div>
     );
