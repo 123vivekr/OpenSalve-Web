@@ -12,9 +12,6 @@ export class AppProvider extends React.Component {
   state = {
     currentPage: ""
   };
-  toggleLoggedIn = () => {
-    this.setState({ isLoggedIn: !this.state.isLoggedIn });
-  };
   setCurrentPage = currentPage => {
     this.setState({ currentPage });
   };
@@ -24,7 +21,7 @@ export class AppProvider extends React.Component {
         value={{
           state: this.state,
           actions: {
-            toggleLoggedIn: this.toggleLoggedIn
+            setCurrentPage: this.setCurrentPage
           }
         }}
       >

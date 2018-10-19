@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import { Consumer } from "../Context";
 import "../css/nav.css";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 const styles = theme => ({
   paper: {
@@ -25,17 +26,49 @@ class NavBar extends Component {
             <div className="NavBar">
               <Paper className={classes.paper}>
                 <Grid container spacing={0} className="navGrid">
-                  <Grid item xs={6} sm={3}>
-                    <Link to="/requests">Requests</Link>
+                  <Grid
+                    item
+                    xs={6}
+                    sm={3}
+                    styles={
+                      context.state.currentPage == "requests" && {
+                        borderBottomColor: "red",
+                        borderBottom: "2px"
+                      }
+                    }
+                  >
+                    <Link
+                      to="/requests"
+                      onClick={() => context.actions.setCurrentPage("requests")}
+                    >
+                      Requests
+                    </Link>
                   </Grid>
                   <Grid item xs={6} sm={3}>
-                    <Link to="/help">Help</Link>
+                    <Link
+                      to="/help"
+                      onClick={() => context.actions.setCurrentPage("help")}
+                    >
+                      Help
+                    </Link>
                   </Grid>
                   <Grid item xs={6} sm={3}>
-                    <Link to="/analytics">Analytics</Link>
+                    <Link
+                      to="/analytics"
+                      onClick={() =>
+                        context.actions.setCurrentPage("analytics")
+                      }
+                    >
+                      Analytics
+                    </Link>
                   </Grid>
                   <Grid item xs={6} sm={3}>
-                    <Link to="/camps">Camps</Link>
+                    <Link
+                      to="/camps"
+                      onClick={() => context.actions.setCurrentPage("camps")}
+                    >
+                      Camps
+                    </Link>
                   </Grid>
                 </Grid>
               </Paper>
