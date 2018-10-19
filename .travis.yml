@@ -1,0 +1,23 @@
+dist: trusty
+sudo: required
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+install:
+  - sh .misc/apt-install.sh
+  - sh .misc/pip3-install.sh
+script:
+  - coala --ci --files=src/*
+  # - coala --files=src/* --non-interactive
+  # - npm test
+  # - npm run build
+# deploy:
+#   provider: surge
+#   skip_cleanup: true
+#   domain: <my_name_here>.surge.sh
+#   project: ./build/
+on:
+  branch: master
