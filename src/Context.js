@@ -10,10 +10,13 @@ export const { Provider, Consumer } = Context;
 
 export class AppProvider extends React.Component {
   state = {
-    isLoggedIn: false
+    currentPage: ""
   };
   toggleLoggedIn = () => {
     this.setState({ isLoggedIn: !this.state.isLoggedIn });
+  };
+  setCurrentPage = currentPage => {
+    this.setState({ currentPage });
   };
   render() {
     return (
