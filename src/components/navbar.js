@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import { Consumer } from "../Context";
 import "../css/nav.css";
 import { Link, withRouter } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
   paper: {
@@ -36,38 +37,60 @@ class NavBar extends Component {
                       }
                     }
                   >
+                      <Button
+                        variant='contained'
+                        color='primary'
+                      >
                     <Link
                       to="/requests"
                       onClick={() => context.actions.setCurrentPage("requests")}
+                      style={{textDecoration: 'none', color: 'white'}}
                     >
                       Requests
                     </Link>
-                  </Grid>
+                    </Button>
+                </Grid>
                   <Grid item xs={6} sm={3}>
+<Button
+                        variant='contained'
+                        color='primary'
+                      >
                     <Link
                       to="/help"
                       onClick={() => context.actions.setCurrentPage("help")}
+                      style={{textDecoration: 'none', color: 'white'}}
                     >
-                      Help
+Help
                     </Link>
+                    </Button>
                   </Grid>
                   <Grid item xs={6} sm={3}>
+  <Button
+                        variant='contained'
+                        color='primary'
+                      >
                     <Link
                       to="/analytics"
-                      onClick={() =>
-                        context.actions.setCurrentPage("analytics")
-                      }
+                      onClick={() => context.actions.setCurrentPage("analytics")}
+                      style={{textDecoration: 'none', color: 'white'}}
                     >
-                      Analytics
+                        Anaytics
                     </Link>
+                    </Button>
                   </Grid>
                   <Grid item xs={6} sm={3}>
+  <Button
+                        variant='contained'
+                        color='primary'
+                      >
                     <Link
                       to="/camps"
                       onClick={() => context.actions.setCurrentPage("camps")}
+                      style={{textDecoration: 'none', color: 'white'}}
                     >
-                      Camps
+                     Camps
                     </Link>
+                    </Button>
                   </Grid>
                 </Grid>
               </Paper>
