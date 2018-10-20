@@ -1,6 +1,6 @@
-var axios = require('axios');
+var axios = require("axios");
 
-const APIbase = "http://localhost:8000/api";
+const baseURL = "http://localhost:8000/api";
 
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "csrftoken";
@@ -10,91 +10,99 @@ axios.defaults.xsrfCookieName = "csrftoken";
 function getCookie(name) {
   var value = "; " + document.cookie;
   var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
+  if (parts.length == 2)
+    return parts
+      .pop()
+      .split(";")
+      .shift();
 }
 
 const csrftoken = getCookie("csrftoken");
 
 // return API version
 function apiVer() {
-    axios.get(APIbase + "/")
-        .then(res => {
-            console.log(res.data);
-            return res.data;
-        })
+  axios.get(baseURL + "/").then(res => {
+    console.log(res.data);
+    return res.data;
+  });
 }
 
 // login via API
-function login(username, pass) {
-    axios.get(APIbase + "/accounts/login")
-        .then(res => {
-            console.log(res);
-            return res;
-        })
+async function login(username, password) {
+  try {
+    let res = await axios.post(baseURL + "/accounts/login", {
+      username,
+      password
+    });
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 // register via API
-function register(username, pass, email, name) {
+async function register(username, pass, email, name) {
+  try {
     var data = {
-        "username": username,
-        "password": pass,
-        "email": email,
-        "name": name
-    }
-    console.log(data);
-    axios.post(APIbase + "/accounts/register", data)
-        .then(res => {
-            console.log(res);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+      username: username,
+      password: pass,
+      email: email,
+      name: name
+    };
+    let res = await axios.post(baseURL + "/accounts/register", data);
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 // get user details from API
 function userDetails(username) {
-	var headers = {
-		'accept': 'application/json',
-		'X-CSRFToken': csrftoken,
-	};
-    axios.get(APIbase + "/accounts/u/" + username, {headers: headers})
-        .then(res => {
-            console.log(res);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+  var headers = {
+    accept: "application/json",
+    "X-CSRFToken": csrftoken
+  };
+  axios
+    .get(baseURL + "/accounts/u/" + username, { headers: headers })
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 // add camps
 function addCamp(id, lat, lng, location, capacity, number_of_people, admin) {
-    var data = {
-        'id': id,
-        'lat': lat,
-        'lng': lng,
-        'location': location,
-        'capacity': capacity,
-        'number_of_people': number_of_people,
-        'admin': admin
-    };
-    axios.post(APIbase + '/camps/add', data)
-        .then(res => {
-            console.log(res);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+  var data = {
+    id: id,
+    lat: lat,
+    lng: lng,
+    location: location,
+    capacity: capacity,
+    number_of_people: number_of_people,
+    admin: admin
+  };
+  axios
+    .post(baseURL + "/camps/add", data)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
 
 // get camp
 function getCamp(id) {
-    axios.get(APIbase + '/camps/c/' + id)
-        .then(res => {
-            console.log(res);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+  axios
+    .get(baseURL + "/camps/c/" + id)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 module.exports.apiVer = apiVer;
