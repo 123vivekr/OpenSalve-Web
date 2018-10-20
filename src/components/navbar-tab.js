@@ -74,7 +74,6 @@ class CenteredTabs extends React.Component {
     }
   render() {
     const { classes } = this.props;
-    console.log(this.props.location.pathname)
     return (
         <Paper className={classes.root}>
             <Tabs
