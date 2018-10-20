@@ -18,7 +18,6 @@ class Analytics extends Component {
     const { classes } = this.props;
     return (
       <div className={root}>
-        <NavBar val={2} />
       </div>
     );
   }

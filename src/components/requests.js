@@ -19,8 +19,6 @@ class Request extends Component {
     const { classes } = this.props;
     return (
       <div className={root}>
-        <NavBar title={"request"} val={0} />
-          <br/>
         <RequestCard />
       </div>
     );
