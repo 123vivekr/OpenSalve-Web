@@ -11,21 +11,23 @@ import { AppProvider } from "./Context";
 import "./App.css";
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <AppProvider>
-            <Route exact path="/auth" component={Auth} />
-            <Route exact path="/requests" component={Request} />
-            <Route exact path="/analytics" component={Analytics} />
-            <Route exact path="/help" component={Help} />
-            <Route exact path="/camps" component={Camps} />
-          </AppProvider>
-        </div>
-      </Router>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <div>
+                    <NavBar />
+                    <br />
+                    <AppProvider>
+                        <Route exact path="/auth" component={Auth} />
+                        <Route exact path="/requests" component={Request} />
+                        <Route exact path="/analytics" component={Analytics} />
+                        <Route exact path="/help" component={Help} />
+                        <Route exact path="/camps" component={Camps} />
+                    </AppProvider>
+                </div>
+            </Router>
+        );
+    }
 }
 
 export default App;
