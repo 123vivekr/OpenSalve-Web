@@ -20,7 +20,7 @@ function getCookie(name) {
 const csrftoken = getCookie("csrftoken");
 
 // return API version
-function apiVer() {
+export function apiVer() {
   axios.get(baseURL + "/").then(res => {
     console.log(res.data);
     return res.data;
@@ -28,7 +28,7 @@ function apiVer() {
 }
 
 // login via API
-async function login(username, password) {
+export async function login(username, password) {
   try {
     let res = await axios.post(baseURL + "/accounts/login", {
       username,
@@ -41,7 +41,7 @@ async function login(username, password) {
 }
 
 // register via API
-async function register(username, pass, email, name) {
+export async function register(username, pass, email, name) {
   try {
     var data = {
       username: username,
@@ -52,7 +52,7 @@ async function register(username, pass, email, name) {
     let res = await axios.post(baseURL + "/accounts/register", data);
     return res;
   } catch (err) {
-    throw new Error(err);
+    throw new Error(err.response.data.username[0]);
   }
 }
 
@@ -104,8 +104,3 @@ function getCamp(id) {
       console.log(error);
     });
 }
-
-module.exports.apiVer = apiVer;
-module.exports.register = register;
-module.exports.login = login;
-module.exports.userDetails = userDetails;

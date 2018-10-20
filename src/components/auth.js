@@ -31,56 +31,12 @@ const styles = theme => ({
 });
 
 class Auth extends Component {
-<<<<<<< HEAD
   constructor() {
     super();
     this.state = {
       error: ""
     };
-    register("aswin", "pass", "aswinmprabhu@gmail.com", "Aswin M");
-    login("aswin", "pass");
   }
-=======
-    login = (classes) => (
-        <div className="Auth">
-            <Grid container spacing={24}>
-                <Grid item xs={12}>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                </Grid>
-                <Grid item xs={12} sm={8}>
-                    <Paper className={classes.paper}>
-                        <TextField
-                            id="username"
-                            label="User Name"
-                            className={classes.textField}
-                            // value={''}
-                            // onChange={this.handleChange('name')}
-                            margin="normal"
-                        />
-                        <br />
-                        <TextField
-                            id="password"
-                            label="Password"
-                            className={classes.textField}
-                            type="password"
-                            // value={''}
-                            // onChange={this.handleChange('name')}
-                            margin="normal"
-                        />
-                        <br />
-                        <br />
-                        <Button variant="contained" className={classes.button}>
-                            Login
-                        </Button>
-                    </Paper>
-                </Grid>
-                <Grid item xs={12} sm={2}>
-                </Grid>
-            </Grid>
-        </div>
-    )
->>>>>>> 9dcafc46fbb5eb008949e8005f31f0c1b055f915
 
   submitLoginForm = async e => {
     e.preventDefault();
@@ -92,17 +48,17 @@ class Auth extends Component {
   };
 
   submitRegisterForm = async e => {
+    console.log("triggerd");
     e.preventDefault();
     try {
       await register(
         this.state.username,
         this.state.password,
         this.state.email,
-        this,
         this.state.name
       );
     } catch (err) {
-      this.setState({ error: err.detail });
+      this.setState({ error: err.message });
     }
   };
 
@@ -146,6 +102,9 @@ class Auth extends Component {
             >
               Login
             </Button>
+            <br />
+            <br />
+            <span style={{ color: "red" }}>{this.state.error}</span>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={2} />
@@ -216,6 +175,8 @@ class Auth extends Component {
             >
               Register
             </Button>
+            <br />
+            <br />
             <span style={{ color: "red" }}>{this.state.error}</span>
           </Paper>
         </Grid>
