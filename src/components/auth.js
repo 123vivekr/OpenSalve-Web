@@ -48,7 +48,6 @@ class Auth extends Component {
   };
 
   submitRegisterForm = async e => {
-    console.log("triggerd");
     e.preventDefault();
     try {
       await register(
