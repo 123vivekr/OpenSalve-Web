@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import NavBar from "./navbar";
+import NavBar from "./navbar-tab";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Consumer } from "../Context";
