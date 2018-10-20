@@ -28,30 +28,32 @@ function apiVer() {
 }
 
 // login via API
-function login(username, password) {
-  axios.post(baseURL + "/accounts/login", { username, password }).then(res => {
-    console.log(res);
+async function login(username, password) {
+  try {
+    let res = await axios.post(baseURL + "/accounts/login", {
+      username,
+      password
+    });
     return res;
-  });
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 // register via API
-function register(username, pass, email, name) {
-  var data = {
-    username: username,
-    password: pass,
-    email: email,
-    name: name
-  };
-  console.log(data);
-  axios
-    .post(baseURL + "/accounts/register", data)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+async function register(username, pass, email, name) {
+  try {
+    var data = {
+      username: username,
+      password: pass,
+      email: email,
+      name: name
+    };
+    let res = await axios.post(baseURL + "/accounts/register", data);
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 // get user details from API

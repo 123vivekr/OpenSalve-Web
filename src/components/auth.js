@@ -33,9 +33,36 @@ const styles = theme => ({
 class Auth extends Component {
   constructor() {
     super();
+    this.state = {
+      error: ""
+    };
     register("aswin", "pass", "aswinmprabhu@gmail.com", "Aswin M");
     login("aswin", "pass");
   }
+
+  submitLoginForm = async e => {
+    e.preventDefault();
+    try {
+      await login(this.state.username, this.state.password);
+    } catch (err) {
+      this.setState({ error: err.detail });
+    }
+  };
+
+  submitRegisterForm = async e => {
+    e.preventDefault();
+    try {
+      await register(
+        this.state.username,
+        this.state.password,
+        this.state.email,
+        this,
+        this.state.name
+      );
+    } catch (err) {
+      this.setState({ error: err.detail });
+    }
+  };
 
   login = classes => (
     <div className="Auth">
@@ -50,8 +77,10 @@ class Auth extends Component {
               id="username"
               label="User Name"
               className={classes.textField}
-              // value={''}
-              // onChange={this.handleChange('name')}
+              onChange={e => {
+                e.preventDefault();
+                this.setState({ username: e.target.value });
+              }}
               margin="normal"
             />
             <br />
@@ -60,13 +89,19 @@ class Auth extends Component {
               label="Password"
               className={classes.textField}
               type="password"
-              // value={''}
-              // onChange={this.handleChange('name')}
+              onChange={e => {
+                e.preventDefault();
+                this.setState({ password: e.target.value });
+              }}
               margin="normal"
             />
             <br />
             <br />
-            <Button variant="contained" className={classes.button}>
+            <Button
+              variant="contained"
+              className={classes.button}
+              onClick={this.submitLoginForm}
+            >
               Login
             </Button>
           </Paper>
@@ -90,7 +125,10 @@ class Auth extends Component {
               label="User Name"
               className={classes.textField}
               // value={''}
-              // onChange={this.handleChange('name')}
+              onChange={e => {
+                e.preventDefault();
+                this.setState({ username: e.target.value });
+              }}
               margin="normal"
             />
             <br />
@@ -99,8 +137,10 @@ class Auth extends Component {
               label="Password"
               className={classes.textField}
               type="password"
-              // value={''}
-              // onChange={this.handleChange('name')}
+              onChange={e => {
+                e.preventDefault();
+                this.setState({ password: e.target.value });
+              }}
               margin="normal"
             />
             <br />
@@ -108,8 +148,10 @@ class Auth extends Component {
               id="email"
               label="Email"
               className={classes.textField}
-              // value={''}
-              // onChange={this.handleChange('name')}
+              onChange={e => {
+                e.preventDefault();
+                this.setState({ email: e.target.value });
+              }}
               margin="normal"
             />
             <br />
@@ -117,15 +159,22 @@ class Auth extends Component {
               id="name"
               label="Name"
               className={classes.textField}
-              // value={''}
-              // onChange={this.handleChange('name')}
+              onChange={e => {
+                e.preventDefault();
+                this.setState({ name: e.target.value });
+              }}
               margin="normal"
             />
             <br />
             <br />
-            <Button variant="contained" className={classes.button}>
+            <Button
+              variant="contained"
+              className={classes.button}
+              onClick={this.submitRegisterForm}
+            >
               Register
             </Button>
+            <span style={{ color: "red" }}>{this.state.error}</span>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={2} />
