@@ -18,10 +18,10 @@ class CenteredTabs extends React.Component {
   state = {
     value: this.props.val,
     pages : [
-        "requests",
-        "help",
-        "analytics",
-        "camps"
+        "/requests",
+        "/help",
+        "/analytics",
+        "/camps"
     ]
   };
 
@@ -32,9 +32,13 @@ class CenteredTabs extends React.Component {
     })
     
   };
-
+  componentDidMount() {
+        let myroute = this.state.pages.indexOf(this.props.location.pathname)
+        this.setState({ value: myroute})
+    }
   render() {
     const { classes } = this.props;
+    console.log(this.props.location.pathname)
     return (
         <Paper className={classes.root}>
             <Tabs

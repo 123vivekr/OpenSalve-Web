@@ -19,7 +19,7 @@ class Camps extends Component {
     const { classes } = this.props;
     return (
       <div className={root}>
-        <NavBar val={3} />
+      <h1>Camps</h1>
       </div>
     );
   }
