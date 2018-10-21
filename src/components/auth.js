@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import NavBar from "./navbar";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import { Consumer } from "../Context";
@@ -64,9 +63,6 @@ class Auth extends Component {
   login = classes => (
     <div className="Auth">
       <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <NavBar title={"auth"} />
-        </Grid>
         <Grid item xs={12} sm={2} />
         <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
@@ -114,9 +110,6 @@ class Auth extends Component {
   register = classes => (
     <div className="Auth">
       <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <NavBar title={"auth"} />
-        </Grid>
         <Grid item xs={12} sm={2} />
         <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
@@ -191,7 +184,7 @@ class Auth extends Component {
         {context => {
           console.log(context);
           return (
-            <div>{login ? this.login(classes) : this.register(classes)}</div>
+            <div>{login? this.login(classes) : this.register(classes)}</div>
           );
         }}
       </Consumer>
