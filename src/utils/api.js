@@ -57,23 +57,31 @@ export async function register(username, pass, email, name) {
 }
 
 // get user details from API
-function userDetails(username) {
+export async function userDetails(username) {
   var headers = {
     accept: "application/json",
     "X-CSRFToken": csrftoken
   };
-  axios
-    .get(baseURL + "/accounts/u/" + username, { headers: headers })
-    .then(res => {
-      console.log(res);
-    })
-    .catch(error => {
-      console.log(error);
+  try {
+    let res = await axios.get(baseURL + "/accounts/u/" + username, {
+      headers: headers
     });
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 // add camps
-function addCamp(id, lat, lng, location, capacity, number_of_people, admin) {
+export async function addCamp(
+  id,
+  lat,
+  lng,
+  location,
+  capacity,
+  number_of_people,
+  admin
+) {
   var data = {
     id: id,
     lat: lat,
@@ -83,24 +91,20 @@ function addCamp(id, lat, lng, location, capacity, number_of_people, admin) {
     number_of_people: number_of_people,
     admin: admin
   };
-  axios
-    .post(baseURL + "/camps/add", data)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+  try {
+    let res = await axios.post(baseURL + "/camps/add", data);
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 // get camp
-function getCamp(id) {
-  axios
-    .get(baseURL + "/camps/c/" + id)
-    .then(res => {
-      console.log(res);
-    })
-    .catch(error => {
-      console.log(error);
-    });
+export async function getCamp(id) {
+  try {
+    let res = await axios.get(baseURL + "/camps/c/" + id);
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
