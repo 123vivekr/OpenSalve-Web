@@ -16,7 +16,7 @@ class App extends Component {
         return (
             <Router>
                 <div>
-                    <NavBar />
+                <NavBar val={0} />
                     <br />
                     <AppProvider>
                         <Route exact path="/auth" component={Auth} />

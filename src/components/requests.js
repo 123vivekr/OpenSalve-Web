@@ -19,6 +19,8 @@ class Request extends Component {
     const { classes } = this.props;
     return (
       <div className={root}>
+        <h1>Requests</h1>
+          <br/>
         <RequestCard />
       </div>
     );

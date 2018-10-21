@@ -18,6 +18,7 @@ class Help extends Component {
     const { classes } = this.props;
     return (
       <div className={root}>
+        <h1>Help</h1>
       </div>
     );
   }

@@ -52,6 +52,47 @@ class CenteredTabs extends React.Component {
 
         );
     }
+  state = {
+    value: this.props.val,
+    pages : [
+        "/requests",
+        "/help",
+        "/analytics",
+        "/camps"
+    ]
+  };
+
+  handleChange = (event, value) => {
+    this.setState({ value },() => {
+        let gotoRoute = this.state.pages[this.state.value]
+        this.props.history.push(gotoRoute)
+    })
+  };
+  componentDidMount() {
+        let myroute = this.state.pages.indexOf(this.props.location.pathname)
+        this.setState({ value: myroute})
+    }
+  render() {
+    const { classes } = this.props;
+    console.log(this.props.location.pathname)
+    return (
+        <Paper className={classes.root}>
+            <Tabs
+            value={this.state.value}
+            onChange={this.handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+            >
+            <Tab label="Requests" />
+            <Tab label="Help" />
+            <Tab label="Analytics" />
+            <Tab label="Camps" />
+            </Tabs>
+        </Paper>
+
+    );
+  }
 }
 
 CenteredTabs.propTypes = {
