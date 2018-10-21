@@ -6,7 +6,6 @@ axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 // Get cookie by name
-// https://stackoverflow.com/questions/10730362/get-cookie-by-name
 function getCookie(name) {
   var value = "; " + document.cookie;
   var parts = value.split("; " + name + "=");
@@ -53,6 +52,15 @@ export async function register(username, pass, email, name) {
     return res;
   } catch (err) {
     throw new Error(err.response.data.username[0]);
+  }
+}
+
+export async function getAllReqs() {
+  try {
+    let res = await axios.get(baseURL + "/help");
+    return res;
+  } catch (err) {
+    throw new Error(err);
   }
 }
 
