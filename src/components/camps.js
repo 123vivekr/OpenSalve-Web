@@ -30,11 +30,11 @@ class Camps extends Component {
       inhabitants: [
         {
           id: 1,
-          name: "asd"
+          name: "Aswin"
         },
         {
           id: 2,
-          name: "asef"
+          name: "Arun"
         }
       ]
     };
