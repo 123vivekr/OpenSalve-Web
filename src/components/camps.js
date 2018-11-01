@@ -102,6 +102,13 @@ class Camps extends Component {
               textAlign: "center"
             }}
           >
+            <span style={greyText}>Model Engineering College</span>
+            <br />
+            <span style={regularText}>Admin: Devdutt</span>
+            <br />
+            <a href="#">Contact</a>
+            <br />
+            <br />
             <span style={greyText}>No. of refugees</span>
             <br />
             <span style={regularText}>{this.state.noOfRefugees}</span>
