@@ -1,6 +1,7 @@
 var axios = require("axios");
 
-const baseURL = "http://bzflag.subinsb.com:8000/api/";
+// const baseURL = "http://bzflag.subinsb.com:8000/api/";
+const baseURL = 'http://localhost:8000/api';
 
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
 axios.defaults.xsrfCookieName = "csrftoken";

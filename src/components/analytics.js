@@ -199,16 +199,17 @@ class Analytics extends Component {
               <PieChart
                 width={730}
                 height={250}
-                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
               >
                 <Pie
                   data={this.state.data}
                   dataKey="nos"
+                  nameKey="resource"
                   cx="50%"
                   cy="50%"
-                  outerRadius={50}
-                  fill="#8884d8"
+                  outerRadius={100}
                 />
+                <Tooltip/>
+                <Legend />
               </PieChart>
             )}
           </div>
