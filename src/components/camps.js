@@ -11,13 +11,12 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 const styles = theme => ({
-    root: {
-        flexGrow: 1
-    }
+  root: {
+    flexGrow: 1
+  }
 });
 
 class Camps extends Component {
-<<<<<<< HEAD
   constructor() {
     super();
     this.state = {
@@ -31,11 +30,15 @@ class Camps extends Component {
       inhabitants: [
         {
           id: 1,
-          name: "asd"
+          name: "Aswin",
+          phone: "8989767645",
+          bg: "B+ve"
         },
         {
           id: 2,
-          name: "asef"
+          name: "Arun",
+          phone: "7989767645",
+          bg: "A+ve"
         }
       ]
     };
@@ -61,6 +64,18 @@ class Camps extends Component {
       {
         Header: "Name",
         accessor: "name",
+        headerStyle,
+        style
+      },
+      {
+        Header: "Phone",
+        accessor: "phone",
+        headerStyle,
+        style
+      },
+      {
+        Header: "Blood Group",
+        accessor: "bg",
         headerStyle,
         style
       },
@@ -103,6 +118,13 @@ class Camps extends Component {
               textAlign: "center"
             }}
           >
+            <span style={greyText}>Model Engineering College</span>
+            <br />
+            <span style={regularText}>Admin: Devdutt</span>
+            <br />
+            <a href="#">Contact</a>
+            <br />
+            <br />
             <span style={greyText}>No. of refugees</span>
             <br />
             <span style={regularText}>{this.state.noOfRefugees}</span>
@@ -161,178 +183,10 @@ class Camps extends Component {
       </div>
     );
   }
-=======
-    constructor() {
-        super();
-        this.state = {
-            noOfRefugees: 200,
-            capacity: 560,
-            resources: {
-                foodPacks: 400,
-                blankets: 167,
-                waterBottles: 589
-            },
-            inhabitants: [
-                {
-                    id: 1,
-                    name: "Aswin",
-                    phone: '8989767645',
-                    bg:"B+ve"
-                },
-                {
-                    id: 2,
-                    name: "Arun",
-                    phone: '7989767645',
-                    bg: "A+ve"
-                }
-            ]
-        };
-    }
-    render() {
-        const { classes } = this.props;
-        const headerStyle = {
-            backgroundColor: "grey",
-            color: "white",
-            fontSize: "18px",
-            fontWeight: "bold"
-        };
-        const style = {
-            textAlign: "center"
-        };
-        const columns = [
-            {
-                Header: "ID",
-                accessor: "id",
-                headerStyle,
-                style
-            },
-            {
-                Header: "Name",
-                accessor: "name",
-                headerStyle,
-                style
-            },
-            {
-                Header: "Phone",
-                accessor: "phone",
-                headerStyle,
-                style
-            },
-            {
-                Header: "Blood Group",
-                accessor: "bg",
-                headerStyle,
-                style
-            },
-            {
-                Header: "Del",
-                Cell: props => (
-                    <Button style={{ backgroundColor: "red", color: "white" }}>
-                        Del
-                    </Button>
-                ),
-                headerStyle,
-                style
-            },
-            {
-                Header: "Edit",
-                Cell: props => (
-                    <Button style={{ backgroundColor: "green", color: "white" }}>
-                        Edit
-                    </Button>
-                ),
-                headerStyle,
-                style
-            }
-        ];
-        const greyText = {
-            color: "grey",
-            fontSize: "24px"
-        };
-        const regularText = {
-            fontSize: "18px"
-        };
-        return (
-            <div className={root}>
-                <div className="dash" style={{}}>
-                    <div
-                        style={{
-                            display: "inline-block",
-                            width: "50%",
-                            height: "100%",
-                            textAlign: "center"
-                        }}
-                    >
-                        <span style={greyText}>Model Engineering College</span>
-                        <br />
-                        <span style={regularText}>Admin: Devdutt</span>
-                        <br />
-                        <a href="#">Contact</a>
-                        <br />
-                        <br />
-                        <span style={greyText}>No. of refugees</span>
-                        <br />
-                        <span style={regularText}>{this.state.noOfRefugees}</span>
-                        <br />
-                        <br />
-                        <span style={greyText}>Capacity</span>
-                        <br />
-                        <span style={regularText}>{this.state.capacity}</span>
-                        <br />
-                    </div>
-                    <div
-                        style={{
-                            display: "inline-block",
-                            width: "50%",
-                            height: "100%",
-                            textAlign: "center"
-                        }}
-                    >
-                        <span style={greyText}>Food Packets</span>
-                        <br />
-                        <span style={regularText}>{this.state.resources.foodPacks}</span>
-                        <br />
-                        <br />
-                        <span style={greyText}>Blankets</span>
-                        <br />
-                        <span style={regularText}>{this.state.resources.blankets}</span>
-                        <br />
-                        <br />
-                        <span style={greyText}>Water Bottles</span>
-                        <br />
-                        <span style={regularText}>{this.state.resources.waterBottles}</span>
-                        <br />
-                        <br />
-                    </div>
-                    <br />
-                    <br />
-                    <div style={{ textAlign: "center" }}>
-                        <Button style={{ backgroundColor: "green", color: "white" }}>
-                            Register new inhabitant
-                        </Button>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <Button style={{ backgroundColor: "blue", color: "white" }}>
-                            Record resource intake
-                        </Button>
-                    </div>
-                </div>
-                <br />
-                <br />
-
-                <ReactTable
-                    data={this.state.inhabitants}
-                    columns={columns}
-                    filterable
-                    sortable
-                />
-            </div>
-        );
-    }
->>>>>>> 4baa62a7ededac91fcda9933a94f7401873cf042
 }
 
 Camps.propTypes = {
-    classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Camps);
