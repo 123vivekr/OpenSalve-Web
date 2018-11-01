@@ -21,27 +21,57 @@ const styles = theme => ({
 
 class RequestCard extends Component {
     state = {
-        viewport: {
-            width: 400,
-            height: 200,
-            latitude: 37.7756778,
-            longitude: -122.416309,
-            zoom: 15
-        },
-        marker: {
-            latitude: 37.7756778,
-            longitude: -122.416309,
-        }
+        viewport: {},
+        reqs: {},
+        markerReqs: {}
     };
+
+    componentWillMount() {
+        this.setState({
+            viewport: {
+                width: 400,
+                height: 200,
+                zoom: 15,
+                latitude: this.props.mapData.lat,
+                longitude: this.props.mapData.lng,
+            },
+            markerReqs: {
+                lat: this.props.mapData.lat,
+                lng: this.props.mapData.lng,
+            }
+            });
+    }
+
     render() {
         const { classes } = this.props;
+        const strike = {textDecoration: 'line-through'};
         return (
             <div className={root}>
                 <Paper className={classes.paper}>
                     <Grid container spacing={0}>
                         <Grid item xs={10} sm={3}>
                             Details
-                        </Grid>
+                            <p>
+                                Name: { this.props.mapData.name }
+                                <br />
+                                Location: { this.props.mapData.location }
+                                <br />
+                                No. of people with you: { this.props.mapData.number_of_people_with_you }
+                                <br />
+                                Phone: { this.props.mapData.phone }
+                                <br />
+                                Source: { this.props.mapData.source }
+                                <br />
+                                Status: { this.props.mapData.status}
+                                <br />
+                                <section style={this.props.mapData.request_for_others ? {} : strike}>Request for others</section>
+                                <br />
+                                <section style={this.props.mapData.need_food ? {} : strike}>Need Food</section>
+                                <section style={this.props.mapData.need_medicine ? {} : strike}>Need Medicine</section>
+                                <section i style={this.props.mapData.need_rescue ? {} : strike}>Need Rescue</section>
+                                <section i style={this.props.mapData.need_water ? {} : strike}>Need Water</section>
+                            </p>
+                       </Grid>
                         <Grid item xs={1} sm={3}>
                             Map
                             <br />
@@ -52,9 +82,10 @@ class RequestCard extends Component {
                                 mapboxApiAccessToken="pk.eyJ1IjoiYmhhc2thcnh1aSIsImEiOiJjam43ZzZkcmc2ZGJpM2txY3Y4amFwY3VwIn0.d5syOLoEU7crgzP260sjAA"
                                 style={{borderRadius: '20px'}}
                             >
-                                <Marker latitude={this.state.marker.latitude} longitude={this.state.marker.longitude}>
+                                <Marker latitude={this.state.markerReqs.lat} longitude={this.state.markerReqs.lng}>
                                     <a
-                                        href={"https://www.google.com/maps/search/?api=1&query="+this.state.marker.latitude+','+this.state.marker.longitude}
+                                        target="_blank"
+                                        href={"https://www.google.com/maps/search/?api=1&query="+this.state.markerReqs.lat+','+this.state.markerReqs.lng}
                                         style={{textDecoration: 'none', color: 'red'}}
                                     >
                                         x
