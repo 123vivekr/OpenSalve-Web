@@ -16,7 +16,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  PieChart,
+  Legend,
+  Pie
 } from "recharts";
 
 const styles = theme => ({
@@ -179,19 +181,36 @@ class Analytics extends Component {
         {this.state.renderChart ? (
           <div className="chart" style={{ padding: "20px" }}>
             <h1>Chart</h1>
-            <BarChart
-              width={600}
-              height={300}
-              data={this.state.data}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="resource" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              <Bar dataKey="nos" fill="#8884d8" />
-            </BarChart>
+            {this.state.chartType == chartTypes.bar ? (
+              <BarChart
+                width={600}
+                height={300}
+                data={this.state.data}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="resource" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="nos" fill="#8884d8" />
+              </BarChart>
+            ) : (
+              <PieChart
+                width={730}
+                height={250}
+                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+              >
+                <Pie
+                  data={this.state.data}
+                  dataKey="nos"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={50}
+                  fill="#8884d8"
+                />
+              </PieChart>
+            )}
           </div>
         ) : (
           ""
