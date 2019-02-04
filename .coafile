@@ -1,4 +1,5 @@
 [all]
 use_spaces = True
-bears = SpaceConsistencyBear
+language = Javascript
+bears = SpaceConsistencyBear, KeywordBear, coalaBear
 files = src/*
